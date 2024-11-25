@@ -1,6 +1,7 @@
 package backend.academy.generators;
 
 import backend.academy.model.FractalImage;
+import backend.academy.model.Pixel;
 import backend.academy.transormations.Transformation;
 import lombok.AllArgsConstructor;
 import java.awt.Color;
@@ -30,10 +31,17 @@ public class FlameFractalGenerateLogic {
             int py = (int) ((y + 1) * height / 2);
 
             if (px >= 0 && px < width && py >= 0 && py < height) {
-                int red = (int) (128 * (1 + Math.sin(i * 0.1)));
-                int green = (int) (128 * (1 + Math.sin(i * 0.1 + 2 * Math.PI / 3)));
-                int blue = (int) (128 * (1 + Math.sin(i * 0.1 + 4 * Math.PI / 3)));
-                fractalImage.pixels()[px][py].color(new Color(red, 120, 120));
+                Pixel pixel = fractalImage.pixels()[px][py];
+                if (pixel.hitCount() == 0){
+                    pixel.color(new Color(transformation.getDefaultRed(), transformation.getDefaultGreen(), transformation.getDefaultBlue()));
+                }
+                else {
+                    int red = (int) (255 * Math.min(1.0, pixel.hitCount() / 100.0));
+                    int green = (int) (255 * Math.min(1.0, pixel.hitCount() / 200.0));
+                    int blue = (int) (255 * Math.min(1.0, pixel.hitCount() / 300.0));
+                    pixel.color(new Color(red, green, blue));
+                }
+                pixel.hitCount(pixel.hitCount() + 1);
             }
         }
 

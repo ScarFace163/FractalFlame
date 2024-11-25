@@ -25,9 +25,10 @@ public class Main {
         Path filePath = Path.of("src/main/resources/fractal.png");
 
         // Однопоточная генерация
-        FlameFractalGenerator.generateSingleThreaded(filePath, width, height, iterations, transformations, ImageFormat.PNG);
+        FlameFractalGenerator.generateSingleThreaded(filePath, width, height, iterations, transformations,
+            ImageFormat.PNG);
 
         // Многопоточная генерация
-       // FlameFractalGenerator.generateMultiThreaded(filePath, width, height, iterations, transformations, 4);
+        // FlameFractalGenerator.generateMultiThreaded(filePath, width, height, iterations, transformations, 4);
     }
 }
