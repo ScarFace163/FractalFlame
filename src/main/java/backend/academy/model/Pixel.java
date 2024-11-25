@@ -1,12 +1,17 @@
 package backend.academy.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.awt.Color;
 
-public class Pixel {
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Pixel{
     Color color = new Color(0, 0, 0);
 
-    int hitCount;
-
-
+    int hitCount = 0;
 }

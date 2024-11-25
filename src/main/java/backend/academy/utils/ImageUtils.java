@@ -1,6 +1,7 @@
 package backend.academy.utils;
 
 import backend.academy.enums.ImageFormat;
+import backend.academy.model.FractalImage;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -13,15 +14,15 @@ public final class ImageUtils {
     private ImageUtils() {
     }
 
-    public static void saveImage(Path filePath, ImageFormat format) {
+    public static void saveImage(Path filePath, ImageFormat format, FractalImage fractalImage) {
         BufferedImage image = new BufferedImage(
-            1024,
-            1024,
+            fractalImage.width(),
+            fractalImage.height(),
             BufferedImage.TYPE_INT_RGB
         );
-        for (int i = 0; i < 1024; i++) {
-            for (int j = 0; j < 1024; j++) {
-                image.setRGB(i, j, new Color(i % 256, j % 256, (i * j) % 256).getRGB());
+        for (int i = 0; i < fractalImage.width(); i++) {
+            for (int j = 0; j < fractalImage.height(); j++) {
+                image.setRGB(i, j, fractalImage.pixels()[i][j].color().getRGB());
             }
         }
         try {
