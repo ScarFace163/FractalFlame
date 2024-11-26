@@ -1,27 +1,20 @@
 package backend.academy.transormations;
 
-import lombok.AllArgsConstructor;
 import java.util.Random;
 
-@AllArgsConstructor
-public class LinearTransformation implements Transformation {
-    private final double scaleX;
-    private final double scaleY;
-    private final Random random = new Random();
+public class SphericalTransformation implements Transformation {
+
+    Random random = new Random();
     private final int red = random.nextInt(256);
     private final int green = random.nextInt(256);
     private final int blue = random.nextInt(256);
 
-    public LinearTransformation(){
-        this.scaleX = 1.05;
-        this.scaleY = 1.05;
-    }
-
     @Override
     public double[] apply(double x, double y) {
+        double r2 = x * x + y * y;
         double[] result = new double[2];
-        result[0] = scaleX * x;
-        result[1] = scaleY * y;
+        result[0] = x / r2;
+        result[1] = y / r2;
         return result;
     }
 

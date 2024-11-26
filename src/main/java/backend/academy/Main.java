@@ -3,6 +3,8 @@ package backend.academy;
 import backend.academy.enums.ImageFormat;
 import backend.academy.generators.FlameFractalGenerator;
 import backend.academy.transormations.LinearTransformation;
+import backend.academy.transormations.SinusTransformation;
+import backend.academy.transormations.SphericalTransformation;
 import backend.academy.transormations.Transformation;
 import lombok.experimental.UtilityClass;
 import java.nio.file.Path;
@@ -16,10 +18,11 @@ public class Main {
         int height = 1920;
         int iterations = 10000000;
         List<Transformation> transformations = Arrays.asList(
-            new LinearTransformation(0.5, 0.5, Math.PI / 6, 0.0, 0.0),
-            new LinearTransformation(0.5, 0.5, -Math.PI / 6, 0.5, 0.5),
-            new LinearTransformation(0.5, 0.5, Math.PI / 3, -0.5, -0.5),
-            new LinearTransformation(0.5, 0.5, Math.PI / 2, 0.5, 0.5)
+            new SinusTransformation(),
+            new SphericalTransformation()
+            //new LinearTransformation()
+            //new LinearTransformation(0.5, 0.5, Math.PI / 3, -0.5, -0.5)
+           // new LinearTransformation(0.5, 0.5, Math.PI / 2, 0.5, 0.5)
         );
 
         Path filePath = Path.of("src/main/resources/fractal.png");
