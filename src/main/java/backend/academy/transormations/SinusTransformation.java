@@ -15,19 +15,4 @@ public class SinusTransformation implements Transformation{
         result[1] = Math.sin(y);
         return result;
     }
-
-    @Override
-    public int getDefaultRed() {
-        return red;
-    }
-
-    @Override
-    public int getDefaultGreen() {
-        return green;
-    }
-
-    @Override
-    public int getDefaultBlue() {
-        return blue;
-    }
 }

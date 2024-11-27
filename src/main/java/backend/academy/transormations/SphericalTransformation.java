@@ -17,19 +17,4 @@ public class SphericalTransformation implements Transformation {
         result[1] = y / r2;
         return result;
     }
-
-    @Override
-    public int getDefaultRed() {
-        return red;
-    }
-
-    @Override
-    public int getDefaultGreen() {
-        return green;
-    }
-
-    @Override
-    public int getDefaultBlue() {
-        return blue;
-    }
 }
