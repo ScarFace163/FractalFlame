@@ -1,13 +1,6 @@
 package backend.academy.transormations;
 
-import java.util.Random;
-
 public class SphericalTransformation implements Transformation {
-
-    Random random = new Random();
-    private final int red = random.nextInt(256);
-    private final int green = random.nextInt(256);
-    private final int blue = random.nextInt(256);
 
     @Override
     public double[] apply(double x, double y) {

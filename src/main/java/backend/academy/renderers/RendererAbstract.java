@@ -1,5 +1,6 @@
 package backend.academy.renderers;
 
+import backend.academy.enums.AffineCoefficientColor;
 import backend.academy.model.AffineCoefficient;
 import backend.academy.model.FractalImage;
 import backend.academy.model.Pixel;
@@ -25,6 +26,7 @@ public abstract class RendererAbstract implements Renderer {
     protected final int iterations;
     protected final int symmetry;
     protected final List<Transformation> transformations;
+    protected final AffineCoefficientColor color;
 
     @Override
     public FractalImage render(int width, int height, Rect rect) {
@@ -37,7 +39,7 @@ public abstract class RendererAbstract implements Renderer {
     private List<AffineTransformation> generateAffineTransformations() {
         List<AffineTransformation> affineTransformations = new ArrayList<>();
         for (int i = 0; i < affineCount; i++) {
-            affineTransformations.add(new AffineTransformation(AffineCoefficient.createRandomAffineCoefficient()));
+            affineTransformations.add(new AffineTransformation(AffineCoefficient.createRandomAffineCoefficient(color)));
         }
         return affineTransformations;
     }

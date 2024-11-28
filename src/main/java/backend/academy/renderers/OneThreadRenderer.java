@@ -1,5 +1,6 @@
 package backend.academy.renderers;
 
+import backend.academy.enums.AffineCoefficientColor;
 import backend.academy.model.FractalImage;
 import backend.academy.model.Rect;
 import backend.academy.transormations.AffineTransformation;
@@ -13,9 +14,10 @@ public class OneThreadRenderer extends RendererAbstract implements Renderer{
         int samples,
         int iterations,
         int symmetry,
-        List<Transformation> transformations
+        List<Transformation> transformations,
+        AffineCoefficientColor color
     ) {
-        super(affineCount, samples, iterations, symmetry, transformations);
+        super(affineCount, samples, iterations, symmetry, transformations, color);
     }
 
     @Override

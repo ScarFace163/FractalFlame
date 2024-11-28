@@ -6,7 +6,7 @@ import java.awt.Color;
 
 public class GammaCorrectionProcessor {
 
-    private static final double GAMMA = 1.7;
+    private static final double GAMMA = 1.8;
 
     public void process(FractalImage fractalImage){
         double max = 0;

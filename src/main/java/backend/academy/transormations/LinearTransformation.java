@@ -7,10 +7,6 @@ import java.util.Random;
 public class LinearTransformation implements Transformation {
     private final double scaleX;
     private final double scaleY;
-    private final Random random = new Random();
-    private final int red = random.nextInt(256);
-    private final int green = random.nextInt(256);
-    private final int blue = random.nextInt(256);
 
     public LinearTransformation(){
         this.scaleX = 1.05;
