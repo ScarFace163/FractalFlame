@@ -13,4 +13,8 @@ public class HeartTransformation implements Transformation {
         result[1] = -sqrt * Math.cos(sqrt + Math.atan(y / x));
         return result;
     }
+
+    @Override public String toString() {
+        return "HeartTransformation";
+    }
 }

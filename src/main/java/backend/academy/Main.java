@@ -89,6 +89,7 @@ public class Main {
                     transformations.add(new SphericalTransformation());
                 }
             }
+            System.out.println(transformations.toString());
         } while (true);
         System.out.println("Choose color");
         for (int index = 0; index < AffineCoefficientColor.values().length; index++) {

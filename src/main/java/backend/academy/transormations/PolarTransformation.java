@@ -7,4 +7,8 @@ public class PolarTransformation implements Transformation {
         double newY = Math.sqrt(x * x + y * y) - 1;
         return new double[] {newX, newY};
     }
+
+    @Override public String toString() {
+        return "PolarTransformation";
+    }
 }

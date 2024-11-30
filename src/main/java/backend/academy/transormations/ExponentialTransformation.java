@@ -8,4 +8,8 @@ public class ExponentialTransformation implements Transformation {
         double newY = Math.exp(x - 1) * Math.sin(Math.PI * y);
         return new double[] {newX, newY};
     }
+
+    @Override public String toString() {
+        return "ExponentialTransformation";
+    }
 }

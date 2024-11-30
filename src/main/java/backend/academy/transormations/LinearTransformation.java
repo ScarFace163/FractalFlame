@@ -20,4 +20,8 @@ public class LinearTransformation implements Transformation {
         result[1] = scaleY * y;
         return result;
     }
+
+    @Override public String toString() {
+        return "LinearTransformation";
+    }
 }

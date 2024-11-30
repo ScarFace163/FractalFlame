@@ -11,4 +11,8 @@ public class SinusTransformation implements Transformation{
         result[1] = Math.sin(y);
         return result;
     }
+
+    @Override public String toString() {
+        return "SinusTransformation";
+    }
 }

@@ -7,4 +7,8 @@ public class DiscTransformation implements Transformation{
         double newY = 1/Math.PI * Math.atan(y/x) * Math.cos(Math.PI*Math.sqrt(x*x + y*y));
         return new double[]{newX, newY};
     }
+
+    @Override public String toString() {
+        return "DiscTransformation";
+    }
 }

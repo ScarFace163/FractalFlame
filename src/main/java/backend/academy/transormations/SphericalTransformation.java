@@ -10,4 +10,8 @@ public class SphericalTransformation implements Transformation {
         result[1] = y / r2;
         return result;
     }
+
+    @Override public String toString() {
+        return "SphericalTransformation";
+    }
 }
