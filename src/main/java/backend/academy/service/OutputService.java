@@ -6,7 +6,7 @@ import backend.academy.enums.TransformationType;
 public class OutputService {
 
     public static <T> void print(T source) {
-        System.out.println(source);
+        System.out.print(source);
     }
 
     public static <T> void println(T source) {
