@@ -52,7 +52,7 @@ public class Main {
         GammaCorrectionProcessor processor = new GammaCorrectionProcessor();
         processor.process(image);
 
-        Path filePath = Path.of("src/main/resources/fractal.png");
+        Path filePath = Path.of("src/main/resources/fractal2.png");
 
         ImageUtils.saveImage(filePath, ImageFormat.PNG, image);
 
