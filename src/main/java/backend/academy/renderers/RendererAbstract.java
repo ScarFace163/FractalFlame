@@ -13,13 +13,12 @@ import lombok.RequiredArgsConstructor;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 @RequiredArgsConstructor
 public abstract class RendererAbstract implements Renderer {
 
     private static final int NORMALIZATION_STEPS_COUNT = 20;
-    private static final Random random = new Random();
 
     protected final int affineCount;
     protected final int samples;
@@ -55,13 +54,13 @@ public abstract class RendererAbstract implements Renderer {
         Rect rect,
         List<AffineTransformation> affineTransformations
     ) {
-        double[] cords = new double[] {random.nextDouble() * rect.width(), Math.random() * rect.height()};
+        double[] cords = new double[] {ThreadLocalRandom.current().nextDouble() * rect.width(), Math.random() * rect.height()};
         for (int i = -NORMALIZATION_STEPS_COUNT; i < iterations; i++) {
             AffineTransformation affineTransformation = affineTransformations.get(
-                random.nextInt(affineTransformations.size())
+                ThreadLocalRandom.current().nextInt(affineTransformations.size())
             );
             Transformation transformation = transformations.get(
-                random.nextInt(transformations.size())
+                ThreadLocalRandom.current().nextInt(transformations.size())
             );
 
             cords = affineTransformation.apply(cords[0], cords[1]);

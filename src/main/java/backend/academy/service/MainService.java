@@ -6,6 +6,7 @@ import backend.academy.model.FractalImage;
 import backend.academy.model.Rect;
 import backend.academy.model.WorldInfo;
 import backend.academy.processors.GammaCorrectionProcessor;
+import backend.academy.renderers.MultiThreadRenderer;
 import backend.academy.renderers.SingleThreadRenderer;
 import backend.academy.transormations.Transformation;
 import backend.academy.utils.ImageUtils;
@@ -60,9 +61,9 @@ public class MainService {
     }
 
     private FractalImage generateImage(WorldInfo worldInfo){
-        FractalImage image = new SingleThreadRenderer(
+        FractalImage image = new MultiThreadRenderer(
             4,
-            10,
+            20,
             worldInfo.iterations(),
             3,
             worldInfo.transformations(),
