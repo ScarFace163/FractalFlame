@@ -5,12 +5,14 @@ import backend.academy.enums.TransformationType;
 
 public class OutputService {
 
+    @SuppressWarnings("checkstyle:RegexpSinglelineJava")
     public static <T> void print(T source) {
         System.out.print(source);
     }
 
+    @SuppressWarnings("checkstyle:RegexpSinglelineJava")
     public static <T> void println(T source) {
-        print(source+"\n");
+        print(source + "\n");
     }
 
     public static void printColorChoose() {

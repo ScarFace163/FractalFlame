@@ -5,84 +5,104 @@ import backend.academy.enums.TransformationType;
 import backend.academy.transormations.DiscTransformation;
 import backend.academy.transormations.ExponentialTransformation;
 import backend.academy.transormations.HeartTransformation;
+import backend.academy.transormations.HorseshoeTransformation;
 import backend.academy.transormations.LinearTransformation;
 import backend.academy.transormations.PolarTransformation;
+import backend.academy.transormations.PopcornTransformation;
 import backend.academy.transormations.SinusTransformation;
 import backend.academy.transormations.SphericalTransformation;
+import backend.academy.transormations.SwirlTransformation;
 import backend.academy.transormations.Transformation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+@SuppressWarnings("checkstyle:MagicNumber")
 public class InputService {
     Scanner sc;
-    public int inputWidth(){
+
+    public int inputWidth() {
         int width;
         String widthRaw = sc.nextLine();
-        try{
+        try {
             width = Integer.parseInt(widthRaw);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             width = 1920;
         }
         return width;
     }
 
-    public int inputHeight(){
+    public int inputHeight() {
         int height;
         String heightRaw = sc.nextLine();
-        try{
+        try {
             height = Integer.parseInt(heightRaw);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             height = 1080;
         }
         return height;
     }
 
-    public int inputIterationsCount(){
+    public int inputIterationsCount() {
         int iterations;
         String iterationsRaw = sc.nextLine();
-        try{
+        try {
             iterations = Integer.parseInt(iterationsRaw);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             iterations = 10000000;
         }
         return iterations;
     }
 
-    public List<Transformation> inputTransformations(){
+    public List<Transformation> inputTransformations() {
         String choose;
         List<Transformation> transformations = new ArrayList<>();
         do {
+            int chooseNumber;
             choose = sc.nextLine();
-            if (choose.isEmpty())
+            if (choose.isEmpty() && !transformations.isEmpty()) {
                 break;
-            int chooseNumber = Integer.parseInt(choose);
-            switch (TransformationType.values()[chooseNumber]) {
-                case DISC -> {
-                    transformations.add(new DiscTransformation());
+            }
+            try {
+                chooseNumber = Integer.parseInt(choose);
+                switch (TransformationType.values()[chooseNumber]) {
+                    case DISC -> {
+                        transformations.add(new DiscTransformation());
+                    }
+                    case EXPONENTIAL -> {
+                        transformations.add(new ExponentialTransformation());
+                    }
+                    case HEART -> {
+                        transformations.add(new HeartTransformation());
+                    }
+                    case LINEAR -> {
+                        transformations.add(new LinearTransformation());
+                    }
+                    case POLAR -> {
+                        transformations.add(new PolarTransformation());
+                    }
+                    case SINUS -> {
+                        transformations.add(new SinusTransformation());
+                    }
+                    case SPHERICAL -> {
+                        transformations.add(new SphericalTransformation());
+                    }
+                    case POPCORN -> {
+                        transformations.add(new PopcornTransformation());
+                    }
+                    case SWIRL -> {
+                        transformations.add(new SwirlTransformation());
+                    }
+                    case HORSESHOE -> {
+                        transformations.add(new HorseshoeTransformation());
+                    }
+                    default -> {
+
+                    }
                 }
-                case EXPONENTIAL -> {
-                    transformations.add(new ExponentialTransformation());
-                }
-                case HEART -> {
-                    transformations.add(new HeartTransformation());
-                }
-                case LINEAR -> {
-                    transformations.add(new LinearTransformation());
-                }
-                case POLAR -> {
-                    transformations.add(new PolarTransformation());
-                }
-                case SINUS -> {
-                    transformations.add(new SinusTransformation());
-                }
-                case SPHERICAL -> {
-                    transformations.add(new SphericalTransformation());
-                }
+            } catch (Exception e) {
+                continue;
             }
             OutputService.println(transformations.toString());
         } while (true);
@@ -97,11 +117,22 @@ public class InputService {
         Random random = new Random();
         AffineCoefficientColor color;
         String choose = sc.nextLine();
-        if (choose.isEmpty()) {
-            color = AffineCoefficientColor.values()[random.nextInt(AffineCoefficientColor.values().length)];
-        } else {
+        try {
             color = AffineCoefficientColor.values()[Integer.parseInt(choose)];
+        } catch (Exception ex) {
+            color = AffineCoefficientColor.values()[random.nextInt(AffineCoefficientColor.values().length)];
         }
         return color;
+    }
+
+    public int inputThreadCount() {
+        int threadCount;
+        String threadCountRaw = sc.nextLine();
+        try {
+            threadCount = Integer.parseInt(threadCountRaw);
+        } catch (Exception ex) {
+            threadCount = 10;
+        }
+        return threadCount;
     }
 }

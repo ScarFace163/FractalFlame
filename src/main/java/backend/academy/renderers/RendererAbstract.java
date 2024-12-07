@@ -9,11 +9,11 @@ import backend.academy.transormations.AffineTransformation;
 import backend.academy.transormations.Transformation;
 import backend.academy.utils.FractalImageUtils;
 import backend.academy.utils.RectUtils;
-import lombok.RequiredArgsConstructor;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public abstract class RendererAbstract implements Renderer {
@@ -26,6 +26,7 @@ public abstract class RendererAbstract implements Renderer {
     protected final int symmetry;
     protected final List<Transformation> transformations;
     protected final AffineCoefficientColor color;
+    protected final int threadCount;
 
     @Override
     public FractalImage render(int width, int height, Rect rect) {
@@ -54,7 +55,8 @@ public abstract class RendererAbstract implements Renderer {
         Rect rect,
         List<AffineTransformation> affineTransformations
     ) {
-        double[] cords = new double[] {ThreadLocalRandom.current().nextDouble() * rect.width(), Math.random() * rect.height()};
+        double[] cords =
+            new double[] {ThreadLocalRandom.current().nextDouble() * rect.width(), Math.random() * rect.height()};
         for (int i = -NORMALIZATION_STEPS_COUNT; i < iterations; i++) {
             AffineTransformation affineTransformation = affineTransformations.get(
                 ThreadLocalRandom.current().nextInt(affineTransformations.size())
@@ -75,6 +77,8 @@ public abstract class RendererAbstract implements Renderer {
             }
         }
     }
+
+    @SuppressWarnings("checkstyle:HiddenField")
     private void processPoint(
         Rect rect,
         FractalImage fractalImage,

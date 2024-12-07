@@ -7,7 +7,7 @@ import backend.academy.transormations.AffineTransformation;
 import backend.academy.transormations.Transformation;
 import java.util.List;
 
-public class SingleThreadRenderer extends RendererAbstract implements Renderer{
+public class SingleThreadRenderer extends RendererAbstract implements Renderer {
 
     public SingleThreadRenderer(
         int affineCount,
@@ -17,7 +17,7 @@ public class SingleThreadRenderer extends RendererAbstract implements Renderer{
         List<Transformation> transformations,
         AffineCoefficientColor color
     ) {
-        super(affineCount, samples, iterations, symmetry, transformations, color);
+        super(affineCount, samples, iterations, symmetry, transformations, color, 1);
     }
 
     @Override
@@ -26,7 +26,8 @@ public class SingleThreadRenderer extends RendererAbstract implements Renderer{
         List<AffineTransformation> affineTransformations,
         Rect rect
     ) {
-        for (int i = 0; i < samples; i++)
+        for (int i = 0; i < samples; i++) {
             renderOneSample(fractalImage, rect, affineTransformations);
+        }
     }
 }

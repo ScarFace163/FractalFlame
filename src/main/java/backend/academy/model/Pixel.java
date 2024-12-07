@@ -1,10 +1,10 @@
 package backend.academy.model;
 
+import java.awt.Color;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.awt.Color;
 
 @Getter
 @Setter

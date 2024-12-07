@@ -1,7 +1,9 @@
 package backend.academy.utils;
 
 import backend.academy.model.Rect;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class RectUtils {
 
     public static double[] rotatePoint(Rect rect, double x, double y, double angle) {

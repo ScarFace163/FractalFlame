@@ -14,8 +14,8 @@ public class AffineTransformation implements Transformation {
 
     @Override
     public double[] apply(double x, double y) {
-        x = affineCoefficient.a() + x * affineCoefficient.b() + y * affineCoefficient.c();
-        y = affineCoefficient.d() + x * affineCoefficient.e() + y * affineCoefficient.f();
-        return new double[] {x, y};
+        double newX = affineCoefficient.a() + x * affineCoefficient.b() + y * affineCoefficient.c();
+        double newY = affineCoefficient.d() + x * affineCoefficient.e() + y * affineCoefficient.f();
+        return new double[] {newX, newY};
     }
 }

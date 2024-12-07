@@ -7,7 +7,6 @@ import backend.academy.model.Rect;
 import backend.academy.model.WorldInfo;
 import backend.academy.processors.GammaCorrectionProcessor;
 import backend.academy.renderers.MultiThreadRenderer;
-import backend.academy.renderers.SingleThreadRenderer;
 import backend.academy.transormations.Transformation;
 import backend.academy.utils.ImageUtils;
 import java.nio.file.Path;
@@ -30,14 +29,17 @@ public class MainService {
 
     public void runProgram() {
         WorldInfo worldInfo = getWorldInfo();
-        OutputService.println("wait, image generating, i will be saved by path src/main/resources/fractal2.png");
+        OutputService.println("wait, image generating, i will be saved by path src/main/resources/fractal5.png");
         FractalImage image = generateImage(worldInfo);
-        Path filePath = Path.of("src/main/resources/fractal2.png");
+        Path filePath = Path.of("src/main/resources/fractal5.png");
         ImageUtils.saveImage(filePath, ImageFormat.PNG, image);
     }
 
     private WorldInfo getWorldInfo() {
-        int width, height, iterations;
+        int width;
+        int height;
+        int iterations;
+        int threadCount;
         List<Transformation> transformations;
         AffineCoefficientColor color;
         OutputService.println("Enter width of image in pixels, default value - 1920");
@@ -46,6 +48,8 @@ public class MainService {
         height = inputService.inputHeight();
         OutputService.println("Enter the number of iterations, default value - 10000000");
         iterations = inputService.inputIterationsCount();
+        OutputService.println("Enter the number of threads, default value - 10");
+        threadCount = inputService.inputThreadCount();
         outputService.printTanformationChoose();
         transformations = inputService.inputTransformations();
         OutputService.printColorChoose();
@@ -57,17 +61,20 @@ public class MainService {
             .iterations(iterations)
             .transformations(transformations)
             .color(color)
+            .threadCount(threadCount)
             .build();
     }
 
-    private FractalImage generateImage(WorldInfo worldInfo){
+    @SuppressWarnings("checkstyle:MagicNumber")
+    private FractalImage generateImage(WorldInfo worldInfo) {
         FractalImage image = new MultiThreadRenderer(
-            4,
-            20,
+            6,
+            8,
             worldInfo.iterations(),
             3,
             worldInfo.transformations(),
-            worldInfo.color()
+            worldInfo.color(),
+            worldInfo.threadCount()
         ).render(worldInfo.width(), worldInfo.height(), new Rect(-4, -3, 8, 6));
 
         GammaCorrectionProcessor processor = new GammaCorrectionProcessor();

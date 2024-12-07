@@ -4,5 +4,6 @@ public enum AffineCoefficientColor {
     RANDOM,
     ORANGE,
     NEON,
-    PINK
+    PINK,
+    BRIGHT
 }

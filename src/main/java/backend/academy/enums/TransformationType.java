@@ -7,5 +7,8 @@ public enum TransformationType {
     LINEAR,
     POLAR,
     SINUS,
-    SPHERICAL
+    SPHERICAL,
+    POPCORN,
+    SWIRL,
+    HORSESHOE
 }

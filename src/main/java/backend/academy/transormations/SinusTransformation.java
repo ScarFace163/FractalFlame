@@ -1,8 +1,6 @@
 package backend.academy.transormations;
 
-import java.util.Random;
-
-public class SinusTransformation implements Transformation{
+public class SinusTransformation implements Transformation {
 
     @Override
     public double[] apply(double x, double y) {

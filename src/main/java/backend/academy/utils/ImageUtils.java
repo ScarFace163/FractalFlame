@@ -2,13 +2,12 @@ package backend.academy.utils;
 
 import backend.academy.enums.ImageFormat;
 import backend.academy.model.FractalImage;
-import javax.imageio.ImageIO;
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import javax.imageio.ImageIO;
 
 public final class ImageUtils {
     private ImageUtils() {

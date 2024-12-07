@@ -1,14 +1,14 @@
 package backend.academy.transormations;
 
 import lombok.AllArgsConstructor;
-import java.util.Random;
 
 @AllArgsConstructor
 public class LinearTransformation implements Transformation {
     private final double scaleX;
     private final double scaleY;
 
-    public LinearTransformation(){
+    @SuppressWarnings("checkstyle:MagicNumber")
+    public LinearTransformation() {
         this.scaleX = 1.05;
         this.scaleY = 1.05;
     }
