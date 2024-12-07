@@ -29,9 +29,9 @@ public class MainService {
 
     public void runProgram() {
         WorldInfo worldInfo = getWorldInfo();
-        OutputService.println("wait, image generating, i will be saved by path src/main/resources/fractal5.png");
+        OutputService.println("wait, image generating, i will be saved by path src/main/resources/fractal7.png");
         FractalImage image = generateImage(worldInfo);
-        Path filePath = Path.of("src/main/resources/fractal5.png");
+        Path filePath = Path.of("src/main/resources/fractal7.png");
         ImageUtils.saveImage(filePath, ImageFormat.PNG, image);
     }
 
