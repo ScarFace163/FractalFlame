@@ -7,9 +7,9 @@ import backend.academy.transormations.AffineTransformation;
 import backend.academy.transormations.Transformation;
 import java.util.List;
 
-public class OneThreadRenderer extends RendererAbstract implements Renderer{
+public class SingleThreadRenderer extends RendererAbstract implements Renderer{
 
-    public OneThreadRenderer(
+    public SingleThreadRenderer(
         int affineCount,
         int samples,
         int iterations,
