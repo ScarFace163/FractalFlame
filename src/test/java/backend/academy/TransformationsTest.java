@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TransformationsTest {
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_disc() {
+    public void givenCorrectInputReturnCorrectResultForApplyDisc() {
         DiscTransformation discTransformation = new DiscTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = discTransformation.apply(cords[0], cords[1]);
@@ -25,7 +25,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_exp() {
+    public void givenCorrectInputReturnCorrectResultForApplyExp() {
         ExponentialTransformation exponentialTransformation = new ExponentialTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = exponentialTransformation.apply(cords[0], cords[1]);
@@ -34,7 +34,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_heart() {
+    public void givenCorrectInputReturnCorrectResultForApplyHeart() {
         HeartTransformation heartTransformation = new HeartTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = heartTransformation.apply(cords[0], cords[1]);
@@ -43,7 +43,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_horse() {
+    public void givenCorrectInputReturnCorrectResultForApplyHorse() {
         HorseshoeTransformation horseshoeTransformation = new HorseshoeTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = horseshoeTransformation.apply(cords[0], cords[1]);
@@ -52,7 +52,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_linear() {
+    public void givenCorrectInputReturnCorrectResultForApplyLinear() {
         LinearTransformation linearTransformation = new LinearTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = linearTransformation.apply(cords[0], cords[1]);
@@ -61,7 +61,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_polar() {
+    public void givenCorrectInputReturnCorrectResultForApplyPolar() {
         PolarTransformation polarTransformation = new PolarTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = polarTransformation.apply(cords[0], cords[1]);
@@ -70,7 +70,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_popcorn() {
+    public void givenCorrectInputReturnCorrectResultForApplyPopcorn() {
         PopcornTransformation popcornTransformation = new PopcornTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = popcornTransformation.apply(cords[0], cords[1]);
@@ -79,7 +79,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_sinus() {
+    public void givenCorrectInputReturnCorrectResultForApplySinus() {
         SinusTransformation sinusTransformation = new SinusTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = sinusTransformation.apply(cords[0], cords[1]);
@@ -88,7 +88,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_spherical() {
+    public void givenCorrectInputReturnCorrectResultForApplySpherical() {
         SphericalTransformation sphericalTransformation = new SphericalTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = sphericalTransformation.apply(cords[0], cords[1]);
@@ -97,7 +97,7 @@ public class TransformationsTest {
     }
 
     @Test
-    public void given_correct_input_return_correct_result_for_apply_swirl() {
+    public void givenCorrectInputReturnCorrectResultForApplySwirl() {
         SwirlTransformation swirlTransformation = new SwirlTransformation();
         double[] cords = new double[] {100, 100};
         double[] newCords = swirlTransformation.apply(cords[0], cords[1]);

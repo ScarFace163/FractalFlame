@@ -19,6 +19,10 @@ public class MainService {
     Random random;
     OutputService outputService;
     InputService inputService;
+    private static final int AFFINE_COUNT = 8;
+    private static final int SAMPLES_COUNT = 20;
+    private static final int SYMMETRY_COUNT = 3;
+
 
     public MainService() {
         sc = new Scanner(System.in);
@@ -68,10 +72,10 @@ public class MainService {
     @SuppressWarnings("checkstyle:MagicNumber")
     private FractalImage generateImage(WorldInfo worldInfo) {
         FractalImage image = new MultiThreadRenderer(
-            6,
-            8,
+            AFFINE_COUNT,
+            SAMPLES_COUNT,
             worldInfo.iterations(),
-            3,
+            SYMMETRY_COUNT,
             worldInfo.transformations(),
             worldInfo.color(),
             worldInfo.threadCount()

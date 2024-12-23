@@ -6,10 +6,12 @@ import backend.academy.model.Rect;
 import backend.academy.transormations.AffineTransformation;
 import backend.academy.transormations.Transformation;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import lombok.SneakyThrows;
 
 public class MultiThreadRenderer extends RendererAbstract {
+    private final ExecutorService executor;
     public MultiThreadRenderer(
         int affineCount,
         int samples,
@@ -20,6 +22,7 @@ public class MultiThreadRenderer extends RendererAbstract {
         int threadCount
     ) {
         super(affineCount, samples, iterations, symmetry, transformations, color, threadCount);
+        this.executor = Executors.newFixedThreadPool(threadCount);
     }
 
     @SneakyThrows
@@ -29,7 +32,6 @@ public class MultiThreadRenderer extends RendererAbstract {
         List<AffineTransformation> affineTransformations,
         Rect rect
     ) {
-        var executor = Executors.newFixedThreadPool(threadCount);
         for (int i = 0; i < samples; i++) {
             executor.execute(
                 () -> renderOneSample(fractalImage, rect, affineTransformations)

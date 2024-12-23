@@ -10,7 +10,6 @@ public class GammaCorrectionProcessor {
 
     public void process(FractalImage fractalImage) {
         double max = 0;
-        double gamma = GAMMA;
 
         for (int x = 0; x < fractalImage.width(); x++) {
             for (int y = 0; y < fractalImage.height(); y++) {
@@ -27,9 +26,9 @@ public class GammaCorrectionProcessor {
             for (int y = 0; y < fractalImage.height(); y++) {
                 Pixel pixel = fractalImage.pixels()[x][y];
                 pixel.normal(fractalImage.pixels()[x][y].normal() / max);
-                int red = (int) (pixel.color().getRed() * Math.pow(pixel.normal(), (1.0 / gamma)));
-                int green = (int) (pixel.color().getGreen() * Math.pow(pixel.normal(), (1.0 / gamma)));
-                int blue = (int) (pixel.color().getBlue() * Math.pow(pixel.normal(), (1.0 / gamma)));
+                int red = (int) (pixel.color().getRed() * Math.pow(pixel.normal(), (1.0 / GAMMA)));
+                int green = (int) (pixel.color().getGreen() * Math.pow(pixel.normal(), (1.0 / GAMMA)));
+                int blue = (int) (pixel.color().getBlue() * Math.pow(pixel.normal(), (1.0 / GAMMA)));
                 pixel.color(new Color(red, green, blue));
             }
         }

@@ -1,6 +1,8 @@
 package backend.academy.transormations;
 
+import backend.academy.model.Point;
+
 public interface Transformation {
-    double[] apply(double x, double y);
+    Point apply(Point point);
 
 }

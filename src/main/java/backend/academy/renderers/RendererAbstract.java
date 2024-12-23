@@ -4,6 +4,7 @@ import backend.academy.enums.AffineCoefficientColor;
 import backend.academy.model.AffineCoefficient;
 import backend.academy.model.FractalImage;
 import backend.academy.model.Pixel;
+import backend.academy.model.Point;
 import backend.academy.model.Rect;
 import backend.academy.transormations.AffineTransformation;
 import backend.academy.transormations.Transformation;
@@ -55,8 +56,8 @@ public abstract class RendererAbstract implements Renderer {
         Rect rect,
         List<AffineTransformation> affineTransformations
     ) {
-        double[] cords =
-            new double[] {ThreadLocalRandom.current().nextDouble() * rect.width(), Math.random() * rect.height()};
+        Point cords =
+            new Point(ThreadLocalRandom.current().nextDouble() * rect.width(), Math.random() * rect.height());
         for (int i = -NORMALIZATION_STEPS_COUNT; i < iterations; i++) {
             AffineTransformation affineTransformation = affineTransformations.get(
                 ThreadLocalRandom.current().nextInt(affineTransformations.size())
@@ -65,13 +66,13 @@ public abstract class RendererAbstract implements Renderer {
                 ThreadLocalRandom.current().nextInt(transformations.size())
             );
 
-            cords = affineTransformation.apply(cords[0], cords[1]);
-            cords = transformation.apply(cords[0], cords[1]);
+            cords = affineTransformation.apply(cords);
+            cords = transformation.apply(cords);
 
             if (i > 0) {
                 double theta = 0;
                 for (int chunk = 0; chunk < symmetry; theta += Math.PI * 2 / symmetry, chunk++) {
-                    double[] newCords = RectUtils.rotatePoint(rect, cords[0], cords[1], theta);
+                    double[] newCords = RectUtils.rotatePoint(rect, cords, theta);
                     processPoint(rect, fractalImage, newCords, affineTransformation);
                 }
             }

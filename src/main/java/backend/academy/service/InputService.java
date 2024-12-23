@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 @SuppressWarnings("checkstyle:MagicNumber")
 public class InputService {
@@ -65,48 +66,57 @@ public class InputService {
                 break;
             }
             try {
-                chooseNumber = Integer.parseInt(choose);
-                switch (TransformationType.values()[chooseNumber]) {
-                    case DISC -> {
-                        transformations.add(new DiscTransformation());
-                    }
-                    case EXPONENTIAL -> {
-                        transformations.add(new ExponentialTransformation());
-                    }
-                    case HEART -> {
-                        transformations.add(new HeartTransformation());
-                    }
-                    case LINEAR -> {
-                        transformations.add(new LinearTransformation());
-                    }
-                    case POLAR -> {
-                        transformations.add(new PolarTransformation());
-                    }
-                    case SINUS -> {
-                        transformations.add(new SinusTransformation());
-                    }
-                    case SPHERICAL -> {
-                        transformations.add(new SphericalTransformation());
-                    }
-                    case POPCORN -> {
-                        transformations.add(new PopcornTransformation());
-                    }
-                    case SWIRL -> {
-                        transformations.add(new SwirlTransformation());
-                    }
-                    case HORSESHOE -> {
-                        transformations.add(new HorseshoeTransformation());
-                    }
-                    default -> {
-
-                    }
-                }
+                addTransformationByNumber(choose, transformations);
             } catch (Exception e) {
                 continue;
             }
             OutputService.println(transformations.toString());
         } while (true);
         return transformations;
+    }
+
+    private void addTransformationByNumber(String choose, List<Transformation> transformations) {
+        int chooseNumber;
+        if (choose.equals("r")) {
+            chooseNumber = ThreadLocalRandom.current().nextInt(TransformationType.values().length);
+        } else {
+            chooseNumber = Integer.parseInt(choose);
+        }
+        switch (TransformationType.values()[chooseNumber]) {
+            case DISC -> {
+                transformations.add(new DiscTransformation());
+            }
+            case EXPONENTIAL -> {
+                transformations.add(new ExponentialTransformation());
+            }
+            case HEART -> {
+                transformations.add(new HeartTransformation());
+            }
+            case LINEAR -> {
+                transformations.add(new LinearTransformation());
+            }
+            case POLAR -> {
+                transformations.add(new PolarTransformation());
+            }
+            case SINUS -> {
+                transformations.add(new SinusTransformation());
+            }
+            case SPHERICAL -> {
+                transformations.add(new SphericalTransformation());
+            }
+            case POPCORN -> {
+                transformations.add(new PopcornTransformation());
+            }
+            case SWIRL -> {
+                transformations.add(new SwirlTransformation());
+            }
+            case HORSESHOE -> {
+                transformations.add(new HorseshoeTransformation());
+            }
+            default -> {
+
+            }
+        }
     }
 
     public InputService() {

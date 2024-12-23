@@ -1,5 +1,6 @@
 package backend.academy.transormations;
 
+import backend.academy.model.Point;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -14,11 +15,13 @@ public class LinearTransformation implements Transformation {
     }
 
     @Override
-    public double[] apply(double x, double y) {
+    public Point apply(Point point) {
+        double x = point.x();
+        double y = point.y();
         double[] result = new double[2];
         result[0] = scaleX * x;
         result[1] = scaleY * y;
-        return result;
+        return new Point(result[0], result[1]);
     }
 
     @Override public String toString() {
