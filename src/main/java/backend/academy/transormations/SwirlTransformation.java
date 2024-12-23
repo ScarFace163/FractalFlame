@@ -11,7 +11,7 @@ public class SwirlTransformation implements Transformation {
         double radius = Math.sqrt(x * x + y * y);
         double newX = x * Math.sin(radius * radius) - y * Math.cos(radius * radius);
         double newY = x * Math.cos(radius * radius) + y * Math.sin(radius * radius);
-        return new Point (newX, newY);
+        return new Point(newX, newY);
     }
 
     @Override public String toString() {

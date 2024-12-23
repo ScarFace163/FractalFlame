@@ -1,5 +1,6 @@
 package backend.academy;
 
+import backend.academy.model.Point;
 import backend.academy.transormations.DiscTransformation;
 import backend.academy.transormations.ExponentialTransformation;
 import backend.academy.transormations.HeartTransformation;
@@ -18,90 +19,80 @@ public class TransformationsTest {
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyDisc() {
         DiscTransformation discTransformation = new DiscTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = discTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], -0.24240849259154232);
-        assertEquals(newCords[1], -0.06114018906984319);
+        Point point = discTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), -0.24240849259154232);
+        assertEquals(point.y(), -0.06114018906984319);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyExp() {
         ExponentialTransformation exponentialTransformation = new ExponentialTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = exponentialTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 9.889030319346946E42);
-        assertEquals(newCords[1], 1.9425879869873473E28);
+        Point point = exponentialTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 9.889030319346946E42);
+        assertEquals(point.y(), 1.9425879869873473E28);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyHeart() {
         HeartTransformation heartTransformation = new HeartTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = heartTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], -127.06647811756834);
-        assertEquals(newCords[1], 94.90994796249471);
+        Point point = heartTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), -127.06647811756834);
+        assertEquals(point.y(), 94.90994796249471);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyHorse() {
         HorseshoeTransformation horseshoeTransformation = new HorseshoeTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = horseshoeTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 0.0);
-        assertEquals(newCords[1], 20000.0);
+        Point point = horseshoeTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 0.0);
+        assertEquals(point.y(), 20000.0);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyLinear() {
         LinearTransformation linearTransformation = new LinearTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = linearTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 105);
-        assertEquals(newCords[1], 105);
+        Point point = linearTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 105);
+        assertEquals(point.y(), 105);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyPolar() {
         PolarTransformation polarTransformation = new PolarTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = polarTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 0.25);
-        assertEquals(newCords[1], 140.4213562373095);
+        Point point = polarTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 0.25);
+        assertEquals(point.y(), 140.4213562373095);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplyPopcorn() {
         PopcornTransformation popcornTransformation = new PopcornTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = popcornTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 100.95283519326958);
-        assertEquals(newCords[1], 100.95283519326958);
+        Point point = popcornTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 100.95283519326958);
+        assertEquals(point.y(), 100.95283519326958);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplySinus() {
         SinusTransformation sinusTransformation = new SinusTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = sinusTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], -0.5063656411097588);
-        assertEquals(newCords[1], -0.5063656411097588);
+        Point point = sinusTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), -0.5063656411097588);
+        assertEquals(point.y(), -0.5063656411097588);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplySpherical() {
         SphericalTransformation sphericalTransformation = new SphericalTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = sphericalTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], 0.005);
-        assertEquals(newCords[1], 0.005);
+        Point point = sphericalTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), 0.005);
+        assertEquals(point.y(), 0.005);
     }
 
     @Test
     public void givenCorrectInputReturnCorrectResultForApplySwirl() {
         SwirlTransformation swirlTransformation = new SwirlTransformation();
-        double[] cords = new double[] {100, 100};
-        double[] newCords = swirlTransformation.apply(cords[0], cords[1]);
-        assertEquals(newCords[0], -23.121492861462542);
-        assertEquals(newCords[1], 139.51844526032153);
+        Point point = swirlTransformation.apply(new Point(100,100));
+        assertEquals(point.x(), -23.121492861462542);
+        assertEquals(point.y(), 139.51844526032153);
     }
 }

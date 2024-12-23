@@ -12,6 +12,7 @@ import lombok.SneakyThrows;
 
 public class MultiThreadRenderer extends RendererAbstract {
     private final ExecutorService executor;
+
     public MultiThreadRenderer(
         int affineCount,
         int samples,
